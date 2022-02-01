@@ -1,0 +1,89 @@
+<html>
+	<head>
+		<title>Spirthday Birthday!</title>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<link rel="stylesheet" href="css/main.css">
+		<script src="js/vue.js"></script>
+	</head>
+
+	<body>
+
+		<main>
+
+			<header>
+				<h1>Spirthday Birthday Alert! <span class="date">{{today}}</span></h1>
+			</header>
+
+			<div class="flex-container">
+				<aside>
+					<div class="todays-spirthdays">
+						<h3>Spirthdays 😇</h3>
+						<ul v-if="isSpirthday" class="spirthdays">
+							<li v-for="spirthday in isSpirthday">{{spirthday.name}}</li>
+						</ul>
+						<ul v-else class="none">
+							<li>None</li>
+						</ul>
+					</div>
+						
+					<div class="todays-birthdays">
+						<h3>Birthdays 🎉</h3>
+						<ul v-if="isBirthday" class="birthdays">
+							<li v-for="birthday in isBirthday">{{birthday.name}}</li>
+						</ul>
+						<ul v-else class="none">
+							<li>None</li>
+						</ul>	
+					</div>
+				</aside>
+				
+				<article>
+					<div class="search">
+						<i class="material-icons">search</i>
+						<!-- Create a binding between the searchString model and the text field -->
+						<input type="text" placeholder="Search directory" v-model="search" />
+					</div>
+				
+					<div class="table-responsive">
+						<table v-cloak class="table is-bordered is-fullwidth">
+							<thead>
+								<tr>
+									<th @click="sortBy('Name')" :class="{
+										ascending : sortKey === 'name' && !reverse,
+										descending: sortKey === 'name' && reverse }">Name</th>
+									
+									<th @click="sortBy('Baptism')" :class="{
+										ascending : sortKey === 'baptism' && !reverse,
+										descending: sortKey === 'baptism' && reverse }">Spirthday</th>
+
+									<th @click="sortBy('Birthday')" :class="{
+										ascending : sortKey === 'birthday' && !reverse,
+										descending: sortKey === 'birthday' && reverse }">Birthday</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr v-for="user in sortedAndFiltered">
+									<td>{{ user.Name }}</td>
+									<td>{{ user.Baptism }}</td>
+									<td>{{ user.Birthday }}</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</article>
+			</div><!-- .flex-container -->
+			
+		</main>
+        
+        <footer></footer>
+
+		<!-- JS -->
+        <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.4/lodash.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+		<script src="spirthday-birthday.js"></script>
+		
+	</body>
+
+</html>

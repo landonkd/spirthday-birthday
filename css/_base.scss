@@ -1,0 +1,273 @@
+// VARS
+$aqua: #00a3ad;
+$aqua_2: #D4F6FF;
+$aqua_3: #ECFBFF;
+
+$orange: #dc6849;
+$orange_2: #FFE2D4;
+$orange_3: #FFF2EC;
+
+$blue: #1A5175;
+$navy: #051e2e;
+$grey: #F1F5FD;
+$sand: #f3e7cc;
+
+
+body {
+    font-family: system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen,Ubuntu,Cantarell,"Droid Sans","Helvetica Neue","Fira Sans",sans-serif;
+  }
+  
+  h1 {
+    max-width: 1200px;
+    text-align: center;
+    margin: 16px auto;
+    font-size: 2em;
+    color: $sand;
+    font-weight: 800;
+    text-transform: uppercase;
+    @media screen and (min-width: 640px) {
+        font-size: 2em;
+        text-align: left;
+    }
+  }
+  
+  h1 span {
+    padding: 0 0 5px;
+    color: $sand;
+    font-weight: 400;
+  }
+  
+  a {
+    color: $aqua;
+    font-weight: bold;
+    &:hover, &:focus {
+      color: #16A085;
+    }
+  }
+  
+  main header {
+    position: relative;
+    padding: .5em 15px;
+    background: $aqua;
+    margin-bottom: 2em;
+  }
+  
+  main .flex-container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    padding: 0 15px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  main .flex-container aside {
+    width: 100%;
+    margin-bottom: 2em;
+  }
+  
+  main .flex-container article {
+    width: 100%;
+  }
+  
+  @media screen and (min-width: 768px) {
+    main .flex-container {
+      -ms-flex-wrap: no-wrap;
+          flex-wrap: no-wrap;
+    }
+    main .flex-container aside {
+      width: 300px;
+      margin-right: 40px;
+    }
+    main .flex-container article {
+      width: calc(100% - 340px);
+    }
+  }
+  
+  ul {
+    margin: 0;
+    padding: 0;
+  }
+  
+  ul li {
+    display: inline-block;
+    padding: 5px 12px 8px;
+    margin: 0 .5em .5em 0;
+    border-radius: 30px;
+  }
+  
+  ul.birthdays li {
+    background: $orange;
+    color: white;
+  }
+  
+  ul.spirthdays li {
+    background: $aqua;
+    color: white;
+  }
+  
+  ul.none li {
+    background: #fff;
+    color: inherit;
+  }
+  
+  .code-wrap {
+    margin-top: 1em;
+    border: 1px solid orange;
+    padding: 10px;
+  }
+  
+  .code-wrap ul {
+    margin-bottom: 1em;
+  }
+  
+  .code-wrap ul li {
+    display: block;
+    padding: 0;
+  }
+  
+  .code-wrap code {
+    background: #efefef;
+    display: block;
+    padding: 10px;
+  }
+  
+/* Todays birthdays/spirthdays 
+-------------------------------------*/
+.todays-spirthdays {
+    background: $aqua_3;
+    border: 2px solid $aqua_2;
+    padding: 1em;
+    margin-bottom: 1em;
+    h3 {
+        margin-top: 0;
+        border-bottom: 2px solid $aqua_2;
+        padding-bottom: .75em;
+        color: $aqua;
+    }
+}
+.todays-birthdays {
+    background: $orange_3;
+    border: 1px solid $orange_2;
+    padding: 1em;
+    h3 {
+        margin-top: 0;
+        border-bottom: 2px solid $orange_2;
+        padding-bottom: .75em;
+        color: $orange;
+    }
+}
+
+
+  /* Search 
+  ------------------------------------*/
+  .search {
+    margin: 0 0 10px 0;
+    position: relative;
+  }
+  
+  .search .material-icons {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+  }
+  
+  .search input {
+    width: 100%;
+    border: none;
+    background: #fff;
+    border: 1px solid rgba(26,81,117,.2);
+    padding: 1em 1em 1em 3em;
+    font-size: 16px;
+  }
+  
+  .search input:focus {
+    outline: none;
+    border-color: $aqua;
+  }
+  
+  
+  /* Table 
+  ------------------------------------*/
+  table.table thead th {
+    color: $aqua;
+    background: $grey;
+    border-color: rgba(26,81,117,.2);
+  }
+  
+  table.table thead th:hover {
+    background: darken($grey, 2%);
+    cursor: pointer;
+  }
+  
+  table.table thead th:after {
+    font-family: 'Material Icons', sans-serif;
+    content: 'arrow_right';
+    color: #dbdbdb;
+    padding-left: 5px;
+    vertical-align: top;
+    font-size: 18px;
+  }
+  
+  table.table thead th.ascending:after {
+    content: 'arrow_drop_down';
+    color: $aqua;
+  }
+  
+  table.table thead th.descending:after {
+    content: 'arrow_drop_up';
+    color: $aqua;
+  }
+  
+  /* TABLE CSS 
+  ------------------------------------*/
+  .table-responsive {
+    width: 100%;
+    margin-bottom: 15px;
+    overflow-y: hidden;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+    min-height: .01%;
+    overflow-x: auto;
+  }
+  
+  table {
+    width: 100%;
+    background-color: white;
+    color: #363636;
+    margin-bottom: 1.5rem;
+    border-spacing: 0;
+    border-collapse: collapse;
+  }
+  
+  table th, table td {
+    border: 1px solid rgba(26,81,117,.2);
+    padding: .5em .5em;
+    vertical-align: top;
+    border-width: 1px;
+    @media screen and (min-width: 768px) {
+      padding: 1em 1em;
+    }
+  }
+  
+  table th {
+    color: #363636;
+    text-align: left;
+  }
+  
+  table tr:hover {
+    background-color: darken($grey, 2%);
+  }
+  
+  table tr:last-child th, table tr:last-child td {
+    border-bottom-width: 2px;
+  }
+  
+  table tbody tr:nth-child(even) {
+    background-color: $grey;
+  }
+  
+  table tbody tr:nth-child(even):hover {
+    background-color: darken($grey, 2%);
+  }
